@@ -14,8 +14,9 @@ module Frack
         else
           Rack::Response.new('Not Found',404)
         end
-        # Your code goes here...
       end
+    end
+  end
 
     class BaseController
       def render(view)
@@ -30,12 +31,12 @@ module Frack
     end
   end
 
-  class UserController < Frack::BaseController
+  class UsersController < Frack::BaseController
     def index
       @users =%w(Toan,Tam,Tri,Son,Tu)
       render("users/index")
     end
-end
+  end
 
 use Rack::Static,root:'public',urls:['/images','/js','/css']
 use Rack::CommonLogger
