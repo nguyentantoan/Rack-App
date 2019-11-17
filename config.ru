@@ -9,15 +9,14 @@ module Frack
         if env['PATH_INFO'] == '/'
           Rack::Response.new(render 'welcome/index')
         elsif env['PATH_INFO']=='/users'
-          @users = ['toan','son','tam','tu','tri']
-          Rack::Response.new(render 'users/index')
+          Rack::Response.new(UsersController.new.index)
         else
           Rack::Response.new('Not Found',404)
         end
       end
     end
   end
-  
+
     class BaseController
       def render(view)
         render_template('layouts/application') do
@@ -33,7 +32,7 @@ module Frack
 
   class UsersController < Frack::BaseController
     def index
-      @users =%w(Toan,Tam,Tri,Son,Tu)
+      @users =%w[Toan,Tam,Tri,Son,Tu]
       render("users/index")
     end
   end
