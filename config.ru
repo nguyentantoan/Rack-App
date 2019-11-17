@@ -32,7 +32,8 @@ end
 
 class UsersController < Frack::BaseController
   def index
-    @users =%w[Toan,Tam,Tri,Son,Tu]
+    #@users =%w[Toan,Tam,Tri,Son,Tu]
+     @users = User.all
     render("users/index")
   end
 end
@@ -43,7 +44,7 @@ class WelcomeController < Frack::BaseController
   end
 end
 
-class Users
+class User
   def self.all
     ['Toan','Tam','Son','Tu','Tri']
   end
