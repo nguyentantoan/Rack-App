@@ -17,6 +17,7 @@ module Frack
         # Your code goes here...
       end
 
+    class BaseController
       def render(view)
         render_template('layouts/application') do
           render_template(view)
