@@ -5,9 +5,3 @@ class UsersController < Frack::BaseController
     render("users/index")
   end
 end
-
-class WelcomeController < Frack::BaseController
-  def index
-    render("welcome/index")
-  end
-end
