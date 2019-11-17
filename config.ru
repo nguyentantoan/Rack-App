@@ -29,6 +29,12 @@ module Frack
       end
     end
   end
+
+  class UserController < Frack::BaseController
+    def index
+      @users =%w(Toan,Tam,Tri,Son,Tu)
+      render("users/index")
+    end
 end
 
 use Rack::Static,root:'public',urls:['/images','/js','/css']
