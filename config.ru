@@ -1,7 +1,6 @@
 $LOAD_PATH << '.'
 require 'rack'
 require 'tilt'
-
 module Frack
   class Application
     class << self
@@ -29,6 +28,9 @@ module Frack
     end
   end
 end
+require'app/controllers/users_controller'
+require'app/controllers/welcomes_controller'
+require'app/models/user'
 
 use Rack::Static,root:'public',urls:['/images','/js','/css']
 use Rack::CommonLogger
