@@ -30,25 +30,6 @@ module Frack
   end
 end
 
-class UsersController < Frack::BaseController
-  def index
-    #@users =%w[Toan,Tam,Tri,Son,Tu]
-     @users = User.all
-    render("users/index")
-  end
-end
-
-class WelcomeController < Frack::BaseController
-  def index
-    render("welcome/index")
-  end
-end
-
-class User
-  def self.all
-    ['Toan','Tam','Son','Tu','Tri']
-  end
-end
 use Rack::Static,root:'public',urls:['/images','/js','/css']
 use Rack::CommonLogger
 use Rack::ContentLength
