@@ -17,32 +17,31 @@ module Frack
     end
   end
 
-    class BaseController
-      def render(view)
-        render_template('layouts/application') do
-          render_template(view)
-        end
-      end
-
-      def render_template(path, &block)
-        Tilt.new("app/views/#{path}.html.erb").render(self,&block)
+  class BaseController
+    def render(view)
+      render_template('layouts/application') do
+        render_template(view)
       end
     end
-  end
 
-  class UsersController < Frack::BaseController
-    def index
-      @users =%w[Toan,Tam,Tri,Son,Tu]
-      render("users/index")
+    def render_template(path, &block)
+      Tilt.new("app/views/#{path}.html.erb").render(self,&block)
     end
   end
+end
 
-  class WelcomeController < Frack::BaseController
-    def index
-      @users =%w[Toan,Tam,Tri,Son,Tu]
-      render("welcome/index")
-    end
+class UsersController < Frack::BaseController
+  def index
+    @users =%w[Toan,Tam,Tri,Son,Tu]
+    render("users/index")
   end
+end
+
+class WelcomeController < Frack::BaseController
+  def index
+    render("welcome/index")
+  end
+end
 
 use Rack::Static,root:'public',urls:['/images','/js','/css']
 use Rack::CommonLogger
