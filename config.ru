@@ -16,7 +16,8 @@ module Frack
         end
       end
     end
-
+  end
+  
     class BaseController
       def render(view)
         render_template('layouts/application') do
@@ -36,7 +37,6 @@ module Frack
       render("users/index")
     end
   end
-end
 
 use Rack::Static,root:'public',urls:['/images','/js','/css']
 use Rack::CommonLogger
