@@ -6,5 +6,4 @@ module Frack
   autoload :Router, 'frack/router'
   autoload :Application, 'frack/application'
   autoload :BaseController, 'frack/base_controller'
-
 end

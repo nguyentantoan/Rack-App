@@ -15,11 +15,11 @@ module Frack
         @app.call(env)
       else
         Rack::Response.new('Not Found',404)
+      end
     end
-  end
 
     def controller_action(mapping)
-      Hash[%w(controller application).zip mapping.split('#')]
+      Hash[%w(controller action).zip mapping.split('#')]
     end
   end
 end
