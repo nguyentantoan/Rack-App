@@ -20,6 +20,6 @@ module Frack
 
     def controller_action(mapping)
       Hash[%w(controller application).zip mapping.split('#')]
+    end
   end
- end
 end
