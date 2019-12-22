@@ -1,1 +1,2 @@
-class Category; end
+class Category < ActiveRecord::Base
+end
