@@ -1,1 +1,1 @@
-class Order_detail; end
+class OrderDetail; end
