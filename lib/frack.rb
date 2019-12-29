@@ -8,6 +8,7 @@ require 'active_record'
 require 'erb'
 require_relative '../config/database'
 
+require 'app/validators/category_validator.rb'
 require 'app/models/user'
 require 'app/models/category'
 require 'app/models/order'
