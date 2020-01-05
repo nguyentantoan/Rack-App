@@ -1,5 +1,7 @@
 module Frack
 class BaseController
+  attr_reader :env, :request
+  
   def initialize(env)
     @env = env
     @request = Rack::Request.new(env)
@@ -13,6 +15,14 @@ class BaseController
 
   def render_template(path, &block)
     Tilt.new("app/views/#{path}.html.erb").render(self,&block)
+  end
+
+  def redirect(location)
+  [
+    [],
+    302,
+    { 'Location' => location }
+  ]
   end
  end
 end
