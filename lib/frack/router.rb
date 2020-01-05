@@ -1,19 +1,46 @@
 module Frack
   class Router
-    ROUTES = {
-      '/' => 'WelcomeController#index',
-      '/users' => 'UsersController#index',
-      '/sign_up' => 'UsersController#new'
-    }
+    attr_reader :app
+
+    ROUTES = [
+      {
+        request_method: 'get',
+        request_path: '/',
+        mapping: 'WelcomeController'
+      },
+      {
+        request_method: 'get',
+        request_path: '/users',
+        mapping: 'UsersController#index'
+      },
+      {
+        request_method: 'get',
+        request_path: '/sign_up',
+        mapping: 'UsersController#new'
+      },
+      {
+        request_method: 'post',
+        request_path: '/sign_up',
+        mapping: 'UsersController#create'
+      }
+    ]
 
     def initialize(app)
       @app = app
-    end
+     end
 
     def call(env)
       if(mapping = ROUTES[env['PATH_INFO']])
         env.merge!(controller_action(mapping))
-        @app.call(env)
+
+        route = routes.find do |r|
+          r[:request_method] == env['REQUEST_METHOD']  &&
+          r[:request_path] == env['PATH_INFO']
+        end
+
+          if route
+            env.merge!(controller_action(route))
+            @app.call(env)
       else
         Rack::Response.new('Not Found',404)
       end
