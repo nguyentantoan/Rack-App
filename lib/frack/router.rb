@@ -27,19 +27,21 @@ module Frack
 
     def initialize(app)
       @app = app
-     end
+    end
 
     def call(env)
+      request_method = env['REQUEST_METHOD'].downcase
+      request_path = env['PATH_INFO']
 
       route = ROUTES.find do |r|
-        r[:request_method] == env['REQUEST_METHOD'] &&
-          r[:request_path] == env['PATH_INFO']
+       r[:request_method] == request_method &&
+        r[:request_path] == request_path
         end
 
-       if route
-          mapping = route[:mapping]
-          env.merge!(controller_action(mapping))
-          @app.call(env)
+      if route
+        mapping = route[:mapping]
+        env.merge!(controller_action(mapping))
+        @app.call(env)
       else
         Rack::Response.new('Not Found',404)
       end
