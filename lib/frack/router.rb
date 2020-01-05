@@ -37,7 +37,7 @@ module Frack
         end
 
        if route
-          (mapping = ROUTES[:mapping])
+          mapping = route[:mapping]
           env.merge!(controller_action(mapping))
           @app.call(env)
       else
