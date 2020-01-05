@@ -6,7 +6,7 @@ module Frack
       {
         request_method: 'get',
         request_path: '/',
-        mapping: 'WelcomeController'
+        mapping: 'WelcomeController#index'
       },
       {
         request_method: 'get',
