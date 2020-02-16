@@ -8,6 +8,7 @@ require 'bcrypt'
 
 ENV['APP_ENV'] || 'development'
 require 'active_record'
+ActiveRecord::Base.logger = Logger.new(STDOUT)
 require 'erb'
 require_relative '../config/database'
 
