@@ -1,8 +1,11 @@
 $LOAD_PATH << File.expand_path(File.dirname(__FILE__))
 $LOAD_PATH << File.expand_path('../', File.dirname(__FILE__))
+
+require 'dotenv/load'
 require 'rack'
 require 'tilt'
 require 'bcrypt'
+
 ENV['APP_ENV'] || 'development'
 require 'active_record'
 require 'erb'

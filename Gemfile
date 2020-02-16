@@ -9,5 +9,6 @@ gem 'byebug'
 gem 'pg'
 gem 'activerecord'
 gem 'bcrypt'
+gem 'dotenv'
 
 # gem "rails"
