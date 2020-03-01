@@ -22,7 +22,23 @@ module Frack
         request_method: 'post',
         request_path: '/sign_up',
         mapping: 'UsersController#create'
+      },
+      {
+        request_method: 'get',
+        request_path: '/products/new',
+        mapping: 'ProductsController#new'
+      },
+      {
+        request_method: 'post',
+        request_path: '/products/new',
+        mapping: 'ProductsController#create'
+      },
+      {
+        request_method: 'get',
+        request_path: '/products',
+        mapping: 'ProductsController#index'
       }
+
     ]
 
     def initialize(app)

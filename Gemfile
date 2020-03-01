@@ -10,5 +10,8 @@ gem 'pg'
 gem 'activerecord'
 gem 'bcrypt'
 gem 'dotenv'
+gem 'actionmailer'
+gem 'letter_opener'
+
 
 # gem "rails"

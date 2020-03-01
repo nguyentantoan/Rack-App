@@ -1,0 +1,32 @@
+<h2>List Product</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Product_name</th>
+      <th>Supplier_id</th>
+      <th>Category</th>
+      <th>Quantity_per_unit</th>
+      <th>Unit_price</th>
+      <th>Units_in_stock</th>
+      <th>Units_on_order</th>
+      <th>Reorder_level</th>
+      <th>Discontinued</th>
+      <th>User</th>
+    </tr>
+  </thead>  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.product_name %></td>
+        <td><%= product.supplier_id %></td>
+        <td><%= product.category&.category_name %></td>
+        <td><%= product.quantity_per_unit %></td>
+        <td><%= product.unit_price %></td>
+        <td><%= product.units_in_stock %></td>
+        <td><%= product.units_on_order %></td>
+        <td><%= product.reorder_level %></td>
+        <td><%= product.discontinued %></td>
+        <td><%= product.user&.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
